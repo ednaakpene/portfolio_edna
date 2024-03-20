@@ -1,11 +1,11 @@
 import { Router } from "express";
 import db from "../db/connection.js";
-import { ObjectId } from "mongodb";
+import { ObjectId } from "mongodb"; // it helps convert the id from string to object
 
 const router = Router();
 const SKILLS_COLLECTION = db.collection("skills");
 
-//Endpoint to get all skills
+//Endpoint to get list of  skills
 router.get("/", async (req, res) => {
   let skillsResults = await SKILLS_COLLECTION.find({}).toArray();
   res.send(skillsResults).status(200);
